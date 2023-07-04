@@ -3,6 +3,10 @@ import * as THREE from "three";
 import vertex from "./shaders/vertex.glsl?raw";
 import fragment from "./shaders/fragment.glsl?raw";
 
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// GRADIENT ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 const canvas = document.querySelector("#canvas") as HTMLCanvasElement;
 
 const scene = new THREE.Scene();
@@ -22,9 +26,13 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 renderer.render(scene, camera);
 
-const colours = ["#c3e4ff", "#6ec3f4", "#eae2ff", "#b9beff", "#f5f5f5"].map(
-  (c) => new THREE.Color(c)
-);
+const DEFAULT_COLOURS = [
+  "#c3e4ff",
+  "#6ec3f4",
+  "#eae2ff",
+  "#b9beff",
+  "#f5f5f5",
+].map((c) => new THREE.Color(c));
 
 const planeMaterial = new THREE.ShaderMaterial({
   fragmentShader: fragment,
@@ -32,7 +40,7 @@ const planeMaterial = new THREE.ShaderMaterial({
   uniforms: {
     time: { value: 0 },
     resolution: { value: new THREE.Vector4() },
-    uColours: { value: colours },
+    uColours: { value: DEFAULT_COLOURS },
   },
   vertexShader: vertex,
 });
@@ -62,3 +70,25 @@ function animate() {
   renderer.render(scene, camera);
 }
 animate();
+
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////// UPDATING COLOURS ///////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+for (let i = 0; i < DEFAULT_COLOURS.length; i++) {
+  const input = document.getElementById(`colour${i + 1}`) as HTMLInputElement;
+  input.value = `#${DEFAULT_COLOURS[i].getHexString()}`;
+}
+
+function handleUpdateColours() {
+  const newColoursHex: string[] = [];
+  for (let i = 0; i < DEFAULT_COLOURS.length; i++) {
+    const input = document.getElementById(`colour${i + 1}`) as HTMLInputElement;
+    newColoursHex.push(input.value);
+  }
+  planeMaterial.uniforms.uColours.value = newColoursHex.map(
+    (c) => new THREE.Color(c)
+  );
+}
+
+document.getElementById("submit")!.onclick = handleUpdateColours;

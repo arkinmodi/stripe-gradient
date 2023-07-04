@@ -1,5 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+
+:root {
+  font-family: Kaushan Script;
+  font-style: normal;
+  font-weight: 400;
+}
+
 canvas {
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
+  z-index: -1;
+}
+
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+.title {
+  font-size: 4rem;
+  margin: 0;
+  text-align: center;
 }
