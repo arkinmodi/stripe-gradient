@@ -6,6 +6,11 @@
   font-weight: 400;
 }
 
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
 canvas {
   left: 0;
   position: fixed;
@@ -24,7 +29,26 @@ main {
 }
 
 .title {
+  color: #3a3a3a;
   font-size: 4rem;
   margin: 0;
+  mix-blend-mode: color-burn;
+  opacity: 1;
   text-align: center;
+}
+
+.title[data-overlay] {
+  color: #3a3a3a;
+  /* color: #bdc6d2; */
+  left: 0;
+  mix-blend-mode: revert;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  user-select: none;
+  z-index: 2;
+}
+
+.title-container {
+  position: relative;
 }
