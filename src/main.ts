@@ -15,7 +15,7 @@ const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
   0.1,
-  1000
+  1000,
 );
 camera.position.set(0, 0, 0.5);
 
@@ -87,7 +87,7 @@ function handleUpdateColours() {
     newColoursHex.push(input.value);
   }
   planeMaterial.uniforms.uColours.value = newColoursHex.map(
-    (c) => new THREE.Color(c)
+    (c) => new THREE.Color(c),
   );
 }
 
