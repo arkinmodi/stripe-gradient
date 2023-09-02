@@ -28,7 +28,7 @@ jobs:
       - run: >
           npx prettier
           --check
-          '**/*.{glsl,html,json,md,ts,yaml,yml}'
+          '**/*.{glsl,html,json,md,ts,yaml,yml,prettierrc}'
 
   typescript:
     runs-on: ubuntu-latest
