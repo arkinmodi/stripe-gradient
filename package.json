@@ -13,8 +13,8 @@
   },
   "devDependencies": {
     "@types/three": "^0.155.0",
-    "prettier": "^2.8.8",
-    "prettier-plugin-glsl": "^0.0.10",
+    "prettier": "^3.0.3",
+    "prettier-plugin-glsl": "^0.1.2",
     "typescript": "^5.2.2",
     "vite": "^4.4.9"
   },
