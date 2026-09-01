@@ -12,11 +12,11 @@
     "lint:yamllint": "yamllint --strict ."
   },
   "devDependencies": {
-    "@types/three": "^0.185.1",
+    "@types/three": "^0.185.4",
     "prettier": "^3.9.6",
-    "prettier-plugin-glsl": "^0.3.0",
+    "prettier-plugin-glsl": "^0.3.1",
     "typescript": "^7.0.2",
-    "vite": "^8.1.5"
+    "vite": "^8.2.2"
   },
   "dependencies": {
     "three": "^0.185.1"
